@@ -8,7 +8,7 @@ module Bettertabs
     # http://stackoverflow.com/questions/8797690/rails-3-1-better-way-to-expose-an-engines-helper-within-the-client-app
     initializer 'bettertabs.action_controller' do |app|
       ActiveSupport.on_load :action_controller do
-        helper BettertabsHelper
+        ::ActionController::Base.send(:helper, BettertabsHelper)
       end
     end
   end
